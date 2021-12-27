@@ -3,9 +3,8 @@ Rails.application.routes.draw do
     resources :orders
     resources :customers
     resources :products
+    root to: redirect(path: "/admin/orders", status: 302)
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  root to: redirect(path: "/admin/orders", status: 302)
 end
