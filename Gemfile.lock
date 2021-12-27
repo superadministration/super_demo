@@ -162,6 +162,8 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.0.2)
       railties (>= 6.0.0)
+    super (0.19.0)
+      railties (>= 5.0)
     thor (1.1.0)
     turbo-rails (1.0.0)
       actionpack (>= 6.0.0)
@@ -199,6 +201,7 @@ DEPENDENCIES
   selenium-webdriver
   sprockets-rails
   stimulus-rails
+  super (~> 0.19.0)
   turbo-rails
   tzinfo-data
   web-console
