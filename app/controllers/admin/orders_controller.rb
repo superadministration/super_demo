@@ -5,6 +5,10 @@ class Admin::OrdersController < AdminController
     Order
   end
 
+  def base_scope
+    model.preload(:customer, :products)
+  end
+
   def display_schema
     Super::Display.new do |f, type|
       f[:id] = type.batch
