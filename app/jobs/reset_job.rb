@@ -5,8 +5,9 @@ class ResetJob < ApplicationJob
     previous = ResetRun.last&.created_at || 1.hour.ago
 
     if (Time.now - previous) > 5.minutes
-      ResetRun.reset
       ResetRun.create!
+      ResetRun.reset
     end
+  rescue
   end
 end

@@ -6,8 +6,12 @@ class ResetRun < ApplicationRecord
 
       Product.insert_all(clean["products"])
       Customer.insert_all(clean["customers"])
-      Order.insert_all(clean["orders"])
-      OrderLine.insert_all(clean["order_lines"])
+      clean["orders"].in_groups_of(1000, false).each do |group|
+        Order.insert_all(group)
+      end
+      clean["order_lines"].in_groups_of(1000, false).each do |group|
+        OrderLine.insert_all(group)
+      end
     end
   end
 
