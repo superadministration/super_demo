@@ -1,5 +1,5 @@
-srand 139
 ActiveRecord::Base.transaction do
+  srand 139
   calculator = Product.create!(name: "Graphing calculator", price_cents: 100_00)
   cheeseburger = Product.create!(name: "Cheeseburger", price_cents: 6_00)
   magazine = Product.create!(name: "Magazine", price_cents: 3_00)
@@ -7,8 +7,8 @@ ActiveRecord::Base.transaction do
   tote = Product.create!(name: "Tote", price_cents: 20_00)
   products = [calculator, cheeseburger, magazine, sneakers, tote]
 
-  (1..1000).each do |i|
-    puts "Creating Customers #{i} to #{i + 99}" if i % 100 == 1
+  (0...1000).each do |i|
+    puts "Creating Customers #{i + 1} to #{i + 100}" if i % 100 == 0
     name = %w[Alice Bob Carol Dan][i % 4]
     Customer.create!(name: "#{name} #{i}")
   end
@@ -26,3 +26,12 @@ ActiveRecord::Base.transaction do
     end
   end
 end
+
+clean = {
+  "products" => Product.all.as_json(only: [:id, :name, :price_cents]),
+  "customers" => Customer.all.as_json(only: [:id, :name]),
+  "orders" => Order.all.as_json(only: [:id, :customer_id]),
+  "order_lines" => OrderLine.all.as_json(only: [:id, :order_id, :product_id]),
+}
+
+Rails.root.join("db/seeds.yml").write(YAML.dump(clean))
