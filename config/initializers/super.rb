@@ -1,3 +1,3 @@
 Super.configuration do |c|
-  c.title = "My Admin Site"
+  c.title = "Super Demo"
 end
