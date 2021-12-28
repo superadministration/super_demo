@@ -69,3 +69,5 @@ group :test do
 end
 
 gem "super", "~> 0.19.0"
+
+gem "newrelic_rpm", "~> 8.2"
