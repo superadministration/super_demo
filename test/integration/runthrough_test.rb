@@ -8,6 +8,9 @@ class RunthroughTest < ActionDispatch::IntegrationTest
     get admin_orders_path
     assert_response :success
 
+    get admin_order_path(Order.first)
+    assert_response :success
+
     get new_admin_order_path
     assert_response :success
 
@@ -34,6 +37,9 @@ class RunthroughTest < ActionDispatch::IntegrationTest
     get admin_customers_path
     assert_response :success
 
+    get admin_customer_path(Customer.first)
+    assert_response :success
+
     get new_admin_customer_path
     assert_response :success
 
@@ -58,6 +64,9 @@ class RunthroughTest < ActionDispatch::IntegrationTest
 
   test "products" do
     get admin_products_path
+    assert_response :success
+
+    get admin_product_path(Product.first)
     assert_response :success
 
     get new_admin_product_path
