@@ -68,6 +68,6 @@ group :test do
   gem "webdrivers"
 end
 
-gem "super", "~> 0.19.0"
+gem "super"
 
 gem "newrelic_rpm", "~> 8.2"
