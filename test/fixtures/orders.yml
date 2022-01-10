@@ -1,7 +1,6 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  customer: one
-
-two:
-  customer: two
+---
+<% FIXTURE_SEEDS["orders"].each do |order| %>
+order_<%= order["id"] %>:
+  id: <%= order["id"] %>
+  customer_id: <%= order["customer_id"] %>
+<% end %>
