@@ -18,4 +18,16 @@ class ResetJobTest < ActiveJob::TestCase
     ResetJob.perform_now
     assert_predicate Customer.where(name: "Ed"), :exists?
   end
+
+  test "it deletes old ResetRuns" do
+    ResetRun.delete_all
+    ResetRun.insert_all(Array.new(2100, { created_at: 1.day.ago, updated_at: 1.day.ago }.freeze))
+    first = ResetRun.first
+    last = ResetRun.last
+    assert_changes("ResetRun.count", from: 2100, to: 2000) do
+      ResetJob.perform_now
+    end
+    assert_raises(ActiveRecord::RecordNotFound) { first.reload }
+    assert_nothing_raised { last.reload }
+  end
 end

@@ -12,6 +12,8 @@ class ResetRun < ApplicationRecord
       clean["order_lines"].in_groups_of(1000, false).each do |group|
         OrderLine.insert_all(group)
       end
+
+      ResetRun.order(id: :desc).offset(2000).delete_all
     end
   end
 
