@@ -127,7 +127,7 @@ GEM
       digest
       net-protocol
       timeout
-    newrelic_rpm (8.7.0)
+    newrelic_rpm (8.8.0)
     nio4r (2.5.8)
     nokogiri (1.13.6-x86_64-darwin)
       racc (~> 1.4)
@@ -173,7 +173,7 @@ GEM
       io-console (~> 0.5)
     rexml (3.2.5)
     rubyzip (2.3.2)
-    selenium-webdriver (4.2.0)
+    selenium-webdriver (4.2.1)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -188,7 +188,7 @@ GEM
     stimulus-rails (1.0.4)
       railties (>= 6.0.0)
     strscan (3.0.3)
-    super (0.20.0)
+    super (0.21.0)
       railties (>= 5.0)
     thor (1.2.1)
     timeout (0.3.0)
