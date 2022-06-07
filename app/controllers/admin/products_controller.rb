@@ -9,7 +9,7 @@ class Admin::ProductsController < AdminController
     Super::Display.new do |f, type|
       f[:id] = type.batch
       f[:name] = type.string
-      f[:price_cents] = type.real(:column) { |val| val = val.to_s.rjust(3, "0") ; "$#{val[0..-3]}.#{val[-2..-1]}" }
+      f[:price_cents] = type.real(:attribute) { |val| val = val.to_s.rjust(3, "0") ; "$#{val[0..-3]}.#{val[-2..-1]}" }
       if current_action.show?
         f[:order_lines_quantity] = type.computed(:record) { |record| record.order_lines.size }
       end
