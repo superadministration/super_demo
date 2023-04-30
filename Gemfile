@@ -5,7 +5,7 @@ ruby "3.2.2"
 
 # Core
 gem "rails", "~> 7.0.0"
-gem "pg", "~> 1.1"
+gem "sqlite3", "~> 1.4"
 gem "puma", "~> 6.0"
 
 gem "super"

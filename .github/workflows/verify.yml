@@ -7,20 +7,8 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:13
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: super_demo_test
-        options: --health-cmd pg_isready --health-interval 500ms --health-timeout 500ms --health-retries 50
-        ports:
-          - 5432:5432
-    env:
-      DATABASE_URL: postgres://postgres:postgres@localhost/super_demo_test
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: ruby/setup-ruby@v1
       with:
         bundler-cache: true

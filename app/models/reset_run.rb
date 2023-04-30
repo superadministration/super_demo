@@ -18,9 +18,13 @@ class ResetRun < ApplicationRecord
   end
 
   def self.reset_tables
-    ActiveRecord::Base.connection.execute("TRUNCATE TABLE order_lines RESTART IDENTITY CASCADE")
-    ActiveRecord::Base.connection.execute("TRUNCATE TABLE orders RESTART IDENTITY CASCADE")
-    ActiveRecord::Base.connection.execute("TRUNCATE TABLE products RESTART IDENTITY CASCADE")
-    ActiveRecord::Base.connection.execute("TRUNCATE TABLE customers RESTART IDENTITY CASCADE")
+    ActiveRecord::Base.connection.execute("DELETE FROM order_lines")
+    ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name='order_lines'")
+    ActiveRecord::Base.connection.execute("DELETE FROM orders")
+    ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name='orders'")
+    ActiveRecord::Base.connection.execute("DELETE FROM products")
+    ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name='products'")
+    ActiveRecord::Base.connection.execute("DELETE FROM customers")
+    ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name='customers'")
   end
 end
