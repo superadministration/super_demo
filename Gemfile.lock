@@ -187,7 +187,7 @@ GEM
     sqlite3 (1.6.2-x86_64-linux)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
-    super (0.21.0)
+    super (0.22.0)
       railties (>= 5.0)
     thor (1.2.1)
     timeout (0.3.2)
