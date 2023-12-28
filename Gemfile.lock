@@ -140,7 +140,8 @@ GEM
       timeout
     net-smtp (0.4.0)
       net-protocol
-    newrelic_rpm (8.16.0)
+    newrelic_rpm (9.6.0)
+      base64
     nio4r (2.7.0)
     nokogiri (1.16.0-arm64-darwin)
       racc (~> 1.4)
@@ -256,7 +257,7 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
-  newrelic_rpm (~> 8.2)
+  newrelic_rpm
   puma (~> 6.0)
   rails (~> 7.1.0)
   selenium-webdriver
